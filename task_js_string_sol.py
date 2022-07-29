@@ -1,3 +1,4 @@
+import json
 js_string_line = '{"BytesReceived": 11257, "DestinationIP": "173.194.39.154", "DestinationPort": 80, "EventCategory": "webfilter", "EventInfo": "URL has been visited", "EventSourceID": "FG224B3907501199", "EventSourceName": "FHY", "EventSourceGroup": "N/A", "PolicyID": "86", "ServiceName": "http", "SessionID": "62551133", "SourceIP": "192.168.1.133", "SourcePort": 52906, "SourceUserName": "HULYA.OZASLAN", "TimeGenerated": "2013-03-15 15:59:21", "URLBaseDomain": "googlesyndication.com", "VirtualDomain": "root"}'
 
 parsed_result = {
@@ -44,52 +45,47 @@ parsed_result = {
 
 
 def parse_func(line):
-    x = line.replace(": ", ", ")
-    x=x.replace("\"","")
-    x=x.replace("}","")
-    x=x.replace("{","")
-    js_string_list = x.split(", ")
+    js_dict=(json.loads(line))
     global parsed_results
     parsed_results = {
         'Bytes': {
-            'Received': js_string_list[1]
+            'Received': js_dict['BytesReceived']
         },
         'Destination': {
-            'IP': js_string_list[3],
-            'Port': js_string_list[5]
+            'IP': js_dict['DestinationIP'],
+            'Port': js_dict['DestinationPort']
         },
         'Event': {
-            'Category': js_string_list[7],
-            'Info': js_string_list[9]
+            'Category': js_dict['EventCategory'],
+            'Info': js_dict['EventInfo']
         },
         'EventSource': {
-            'ID': js_string_list[11],
-            'Name': js_string_list[13],
-            'Group': js_string_list[15]
+            'ID': js_dict['EventSourceID'],
+            'Name': js_dict['EventSourceName'],
+            'Group': js_dict['EventSourceGroup']
         },
         'Policy': {
-            'ID': js_string_list[17]
+            'ID': js_dict['PolicyID']
         },
         'Service': {
-            'Name': js_string_list[19]
+            'Name': js_dict['ServiceName']
         },
         'Session': {
-            'ID': js_string_list[21]
+            'ID': js_dict['SessionID']
         },
         'Source': {
-            'IP': js_string_list[23],
-            'Port': js_string_list[25],
-            'UserName': js_string_list[27]
+            'IP': js_dict['SourceIP'],
+            'Port': js_dict['SourcePort'],
+            'UserName': js_dict['SourceUserName']
         },
         'Time': {
-            'Generated': js_string_list[29]
+            'Generated': js_dict['TimeGenerated']
         },
         'URL': {
-            'BaseDomain': js_string_list[31]
+            'BaseDomain': js_dict['URLBaseDomain']
         },
         'Virtual': {
-            'Domain': js_string_list[33],
-            'DataType':'log'
+            'Domain': js_dict['VirtualDomain'],
+            'DataType': 'log'
         }}
-    
     return parsed_results

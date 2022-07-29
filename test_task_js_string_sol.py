@@ -5,9 +5,9 @@ class Test_csv_match (unittest.TestCase):
     def test_csv_parsed_results(self):
         task_js_string_sol.parse_func(task_js_string_sol.js_string_line)
         self.assertEqual(
-            task_js_string_sol.parsed_results['Bytes']['Received'], '11257')
+            task_js_string_sol.parsed_results['Bytes']['Received'], 11257)
         self.assertEqual(
-            task_js_string_sol.parsed_results['Destination']['Port'], '80')
+            task_js_string_sol.parsed_results['Destination']['Port'], 80)
         self.assertEqual(
             task_js_string_sol.parsed_results['Destination']['IP'], '173.194.39.154')
         self.assertEqual(
@@ -29,7 +29,7 @@ class Test_csv_match (unittest.TestCase):
         self.assertEqual(
             task_js_string_sol.parsed_results['Source']['IP'], '192.168.1.133')
         self.assertEqual(
-            task_js_string_sol.parsed_results['Source']['Port'], '52906')
+            task_js_string_sol.parsed_results['Source']['Port'], 52906)
         self.assertEqual(
             task_js_string_sol.parsed_results['Source']['UserName'], 'HULYA.OZASLAN')
         self.assertEqual(
