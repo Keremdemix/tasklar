@@ -18,7 +18,7 @@ with open('Sayfa1.json') as json_file:
         
         }
     
-    dest = dict(x)  # or orig.copy()
+    dest = dict(x) 
     jsonString = json.dumps(dest)
     jsonFile = open(("data.json"), "w")
     jsonFile.write(jsonString)
