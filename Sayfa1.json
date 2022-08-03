@@ -1,0 +1,26 @@
+[
+    {
+        "VendorID": 103001.0,
+        "EventMap.Context": "VPN",
+        "EventMap.Type": "IPSec",
+        "EventMap.SubType": "Error"
+    },
+    {
+        "VendorID": 103002.0,
+        "EventMap.Context": "VPN",
+        "EventMap.Type": "IPSec",
+        "EventMap.SubType": "Error"
+    },
+    {
+        "VendorID": 103003.0,
+        "EventMap.Context": "VPN",
+        "EventMap.Type": "IPSec",
+        "EventMap.SubType": "Error"
+    },
+    {
+        "VendorID": 103004.0,
+        "EventMap.Context": "VPN",
+        "EventMap.Type": "IPSec",
+        "EventMap.SubType": "Error"
+    }
+]
